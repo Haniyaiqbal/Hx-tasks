@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://unpkg.com/htmx.org@1.9.12" integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2" crossorigin="anonymous"></script>
+    
+   
+</head>
+
+<body>    
+
+
+
+<div id="editableContent">
+
+    <h1 hx-get="{% url 'get_text' %}" hx-trigger="click" hx-target="#editableContent">HEllo</h1>
+
+</div>
+
+
+{% include 'slider_task/parendiv.html' %}
+
+    <form hx-post="{% url 'get_temperature' %}" hx-target="#parent-div" hx-swap="outerHTML" hx-trigger="change from#vol;">
+
+        {% csrf_token %}
+
+        <label for="vol">Temperature (between 0 and 50):</label>
+
+        <input type="range" id="vol" name="vol" min="0" max="50">
+
+    </form>
+
+    <br>   
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+<form hx-post="{% url 'save_text' %}" hx-target="#editableContent">
+
+    
+    {% csrf_token %}
+
+    <input type="text" name="new_text" value="{{ text }}">
+
+    <button type="submit">Save</button>
+
+</form>
