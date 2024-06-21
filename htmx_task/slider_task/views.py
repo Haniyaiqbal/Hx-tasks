@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import JsonResponse
+from .models import fruit
 
 def index(req):
 
@@ -21,6 +22,21 @@ def get_temperature(req):
 def get_text(req):
 
     return render(req, 'slider_task/editableform.html')
+
+def get_data(req):
+
+    fruit_details = None
+    
+    if req.method == 'POST':
+
+        fruit_name = req.POST.get('fruit')
+
+        if fruit_name:
+                        
+            fruit_details = fruit.objects.get(name=fruit_name)
+            
+
+    return render(req, 'slider_task/search_result.html', {'fruit_details': fruit_details})
 
 
 

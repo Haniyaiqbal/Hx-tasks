@@ -6,6 +6,7 @@ urlpatterns = [
     path('get_temperature/', views.get_temperature, name='get_temperature'),
      path('get_text/', views.get_text, name='get_text'),
     path('save_text/', views.save_text, name='save_text'),
+    path('get_data/', views.get_data, name='get_data'),
 
 
 ]

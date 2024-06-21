@@ -13,7 +13,7 @@
 
 <div id="editableContent">
 
-    <h1 hx-get="{% url 'get_text' %}" hx-trigger="click" hx-target="#editableContent">HEllo</h1>
+    <h1 hx-get="{% url 'get_text' %}" hx-trigger="click" hx-target="#editableContent">Hello</h1>
 
 </div>
 
@@ -30,9 +30,24 @@
 
     </form>
 
-    <br>   
+    <br>  
+    
+    <div id="search-form">
+        
+        <form hx-post="{% url 'get_data' %}" hx-target="#search-div" hx-trigger="click">
 
+            {% csrf_token %}
 
+            <label>Input:</label>
+
+            <input type="text" id="fruit" name="fruit">
+
+            <button type="submit">search</button>
+
+        </form>
+    </div>
+    
+    {% include 'slider_task/search_result.html' %}
 
 </body>
 
